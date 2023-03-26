@@ -47,7 +47,7 @@ function ContactManagerAPI(){
     }
     const searchContact=(e)=>{
         e.preventDefault()
-        axios.get(`http://localhost:${process.env.PORT}/search?fname=${search}`).then((res)=>setSearchResults(res.data)).catch((err)=>console.log(err))
+        axios.get(`$${process.env.BASE_URL}/search?fname=${search}`).then((res)=>setSearchResults(res.data)).catch((err)=>console.log(err))
     }
     return(
         <div>
