@@ -1,37 +1,26 @@
+
+
 const express=require("express")
 const server=express()
-//const morgan=require("morgan")
-const logger=require("./middleware/logger")
-const bp=require("body-parser")
-const cors=require("cors")
-server.use(bp.json())
-//server.use(morgan('tiny'))
-server.use(logger)
-server.use(cors())
-const todoRoutes=require("./routes/todoRoutes")
-const cmRoutes=require("./routes/cmanagerstatic")
-const signup=require("./routes/Signup")
-const signin=require("./routes/Signin")
-const protected=require("./routes/protected")
-const createContact=require("./routes/createContact")
-const viewAll=require("./routes/viewContact")
-const searchFname=require("./routes/searchContact")
-const searchID=require("./routes/searchContactByID")
-const updatePhone=require("./routes/updatePhone")
-const updateContact=require("./routes/updateContact")
-const updateByID=require("./routes/updateByID")
-const deleteContact=require("./routes/deleteContact")
-server.use("/todo",todoRoutes)
-server.use("/",cmRoutes)
-server.use("/",signup)
-server.use("/",signin)
-server.use("/",protected)
-server.use("/",createContact)
-server.use("/",viewAll)
-server.use("/",searchFname)
-server.use("/",searchID)
-server.use("/",updatePhone)
-server.use("/",updateContact)
-server.use("/",updateByID)
-server.use("/",deleteContact)
-server.listen(process.env.PORT||3001,()=>console.log("server has started at port no : 3001"))
+const data=require("./data/users")
+server.get("/view",(req,res)=>{
+console.log(req)
+
+})
+
+server.get("/getDetails",(req,res)=>{
+console.log(req)
+const querydata=req.query
+const result=data.filter((item)=>item.username===querydata.username&&item.email===querydata.email)
+res.status(300).send(JSON.stringify(result))
+})
+
+server.get("/getByNumber/:paramNumber",(req,res)=>{
+    
+    const paramsData=req.params
+    console.log(typeof paramsData.paramNumber)
+    const result=data.filter((item)=>item.phone===Number(paramsData.paramNumber))
+    console.log(result)
+    res.status(200).send(JSON.stringify(result))
+})
+server.listen(3001,()=>console.log("server has started in port no 3001"))
