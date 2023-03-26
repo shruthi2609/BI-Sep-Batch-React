@@ -1,0 +1,17 @@
+DataBases:
+SQL vs NoSql
+
+Structured query language:
+Nosql:
+mongoDB shell
+mongoose
+mongodb compass
+
+commands:
+
+
+show dbs
+use dbname
+db.createCollection("contactManager")
+show collections
+db.contactManager.insertOne({"fname":"peter","email":"peter@gmail.com","phone":82789892})

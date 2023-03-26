@@ -1,0 +1,12 @@
+1. useeffect is called after all the render.
+
+useEffect(function)
+
+2.useEffect is called only for initial render
+
+useEffect(function,[])
+
+
+3.useEffect is called when the depenency list is updated or changed
+
+useEffect(function,[state,props])

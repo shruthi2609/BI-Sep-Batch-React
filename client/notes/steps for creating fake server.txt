@@ -1,0 +1,36 @@
+1. create a folder - > cd folder name
+
+2. npm install json-server
+
+3.npm init
+
+4.scripts:  "start":"json-server -p 3001 -w db.json"
+
+
+5. create the resource as db.json
+
+
+sample:{
+  "todoData": [
+    {
+      "todoText": "buy milk",
+      "completed": false,
+      "id": 2
+    },
+    {
+      "todoText": "buy bread",
+      "completed": false,
+      "id": 3
+    }
+  ],
+  "contactApp": [
+    {
+      "id": 1,
+      "contactName": "Shruthi",
+      "email": "xyz@gmail.com"
+    }
+  ]
+}
+
+
+6. npm start

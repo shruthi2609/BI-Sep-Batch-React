@@ -1,0 +1,9 @@
+.container{
+    background-color: palegoldenrod;
+    width: 100%;
+}
+button{
+    border: 2px;
+    background-color: gray;
+}
+

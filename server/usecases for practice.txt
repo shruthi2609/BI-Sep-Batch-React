@@ -1,0 +1,20 @@
+model - userDetails
+
+username
+email
+phone
+city - mumbai
+rewardpoints - 1000
+
+
+john
+peter
+henry
+helen
+harry
+
+
+updateOne({city:"mumbai"},{rewardpoints:1000})
+updateMany({city:"mumbai"},{rewardpoints:1000})
+
+
