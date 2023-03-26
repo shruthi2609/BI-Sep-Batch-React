@@ -1,6 +1,6 @@
 const mongoose=require("mongoose")
 const { Schema } = mongoose;
-mongoose.connect("mongodb+srv://shruthi:test123@cluster0.rpq7s.mongodb.net/?retryWrites=true&w=majority").then((res)=>console.log("connected to db successfully")).catch((err)=>console.log("connection failed",err))
+mongoose.connect(process.env.MONGO_ATLAS_URL).then((res)=>console.log("connected to db successfully")).catch((err)=>console.log("connection failed",err))
 
 const UserSchema=new Schema({
     email:{
