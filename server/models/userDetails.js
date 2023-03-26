@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-mongoose.connect(MONGO_ATLAS_URL).then((res)=>console.log("connected to db successfully")).catch((err)=>console.log("connection failed",err))
+mongoose.connect(process.env.MONGO_ATLAS_URL).then((res)=>console.log("connected to db successfully")).catch((err)=>console.log("connection failed",err))
 
 
 const userDetails=mongoose.model("userDetails",{
