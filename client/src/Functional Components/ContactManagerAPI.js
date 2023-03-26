@@ -13,7 +13,8 @@ function ContactManagerAPI(){
         axios.get("http://localhost:3001/contactApp").then((res)=>setContact(res.data)).catch((err)=>console.log(err))
     }*/
     useEffect(()=>{
-        axios.get(`${process.env.BASE_URL}/viewAll`).then((res)=>setContact(res.data)).catch((err)=>console.log(err))
+        console.log("https://bi-sep-batch-react-fsjk2sfbc-shruthi2609.vercel.app/viewAll")
+        axios.get("https://bi-sep-batch-react-fsjk2sfbc-shruthi2609.vercel.app/viewAll").then((res)=>setContact(res.data)).catch((err)=>console.log(err))
     },[flag])
    
     const handleInput=(e,keyword)=>{
@@ -32,7 +33,7 @@ function ContactManagerAPI(){
     }
     const addContact=(e)=>{
         e.preventDefault()
-        axios.post(`${process.env.BASE_URL}/createContact`,{
+        axios.post("https://bi-sep-batch-react-fsjk2sfbc-shruthi2609.vercel.app/createContact",{
             "fname":firstname,
             "phone":phone,
             "email":email
@@ -42,12 +43,12 @@ function ContactManagerAPI(){
     }
     const deleteContact=(e,id)=>{
         e.preventDefault()
-        axios.get(`${process.env.BASE_URL}/deleteById?id=${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err))
+        axios.get(`https://bi-sep-batch-react-fsjk2sfbc-shruthi2609.vercel.app/deleteById?id=${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err))
         setFlag(!flag)
     }
     const searchContact=(e)=>{
         e.preventDefault()
-        axios.get(`$${process.env.BASE_URL}/search?fname=${search}`).then((res)=>setSearchResults(res.data)).catch((err)=>console.log(err))
+        axios.get(`https://bi-sep-batch-react-fsjk2sfbc-shruthi2609.vercel.app/search?fname=${search}`).then((res)=>setSearchResults(res.data)).catch((err)=>console.log(err))
     }
     return(
         <div>
