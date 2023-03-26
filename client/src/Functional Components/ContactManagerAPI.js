@@ -13,7 +13,7 @@ function ContactManagerAPI(){
         axios.get("http://localhost:3001/contactApp").then((res)=>setContact(res.data)).catch((err)=>console.log(err))
     }*/
     useEffect(()=>{
-        axios.get(`http://localhost:${process.env.PORT}/viewAll`).then((res)=>setContact(res.data)).catch((err)=>console.log(err))
+        axios.get(`${process.env.BASE_URL}/viewAll`).then((res)=>setContact(res.data)).catch((err)=>console.log(err))
     },[flag])
    
     const handleInput=(e,keyword)=>{
@@ -32,7 +32,7 @@ function ContactManagerAPI(){
     }
     const addContact=(e)=>{
         e.preventDefault()
-        axios.post(`http://localhost:${process.env.PORT}/createContact`,{
+        axios.post(`${process.env.BASE_URL}/createContact`,{
             "fname":firstname,
             "phone":phone,
             "email":email
@@ -42,7 +42,7 @@ function ContactManagerAPI(){
     }
     const deleteContact=(e,id)=>{
         e.preventDefault()
-        axios.get(`http://localhost:${process.env.PORT}/deleteById?id=${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err))
+        axios.get(`${process.env.BASE_URL}/deleteById?id=${id}`).then((res)=>console.log(res)).catch((err)=>console.log(err))
         setFlag(!flag)
     }
     const searchContact=(e)=>{
